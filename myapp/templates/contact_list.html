@@ -39,3 +39,11 @@
 </body>
 </html>
 <a href="{% url 'create_contact' %}">Create New Contact</a>
+<!-- Existing structure -->
+{% for contact in contacts %}
+    <li>
+        {{ contact.name }} - {{ contact.email }} - {{ contact.phone }}
+        <a href="{% url 'contact_detail' contact.id %}">Details</a>
+        <a href="{% url 'delete_contact' contact.id %}" onclick="return confirm('Are you sure?');">Delete</a>
+    </li>
+{% endfor %}

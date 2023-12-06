@@ -19,3 +19,10 @@ def create_contact(request):
         return redirect('contact_list')  # Redirect after saving
 
     return render(request, 'create_contact.html')
+def contact_detail(request, contact_id):
+    contact = Contact.objects.get(id=contact_id)
+    return render(request, 'contact_detail.html', {'contact': contact})
+def delete_contact(request, contact_id):
+    contact = Contact.objects.get(id=contact_id)
+    contact.delete()
+    return redirect('contact_list')
