@@ -8,8 +8,8 @@
     <p>Are you sure you want to delete "{{ contact.name }}"?</p>
 
     <form method="post">
-        {% csrf_token %}
         <input type="submit" value="Confirm Delete">
+        <input type="submit" value="Cancel Delete">
     </form>
 
     <a href="{% url 'contact_list' %}">Cancel</a>
