@@ -7,7 +7,35 @@
     <title>Contact List</title>
 </head>
 <body>
-    <h1>Contact List</h1>
-    <!-- The contact list and button will go here -->
+    <h1>Contact Management</h1>
+
+    <!-- Button to create a new contact -->
+    <a href="{% url 'create_contact' %}">Create New Contact</a>
+
+    <!-- Contact list display -->
+    {% if contacts %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created Time</th>
+            </tr>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.created_time }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No contacts found.</p>
+    {% endif %}
+
+    <!-- Footer with copyright -->
+    <footer>
+        <p>Created by Xiaoxuan Hu</p>
+    </footer>
 </body>
 </html>
+<a href="{% url 'create_contact' %}">Create New Contact</a>

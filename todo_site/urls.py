@@ -28,3 +28,10 @@ urlpatterns = [
     path('create/', views.create_contact, name='create_contact'),
     # Add other URLs for update, delete, etc.
 ]
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    # ... other URL patterns ...
+    path('create/', views.create_contact, name='create_contact'),
+]
