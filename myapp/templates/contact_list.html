@@ -47,3 +47,8 @@
         <a href="{% url 'delete_contact' contact.id %}" onclick="return confirm('Are you sure?');">Delete</a>
     </li>
 {% endfor %}
+<!-- Existing contact list loop -->
+{% for contact in contacts %}
+    <!-- Existing contact information display -->
+    <a href="{% url 'contact_detail' contact.id %}">View Details</a>
+{% endfor %}

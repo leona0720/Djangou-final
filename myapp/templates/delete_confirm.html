@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content -->
+</head>
+<body>
+    <h1>Confirm Delete</h1>
+    <p>Are you sure you want to delete "{{ contact.name }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete">
+    </form>
+
+    <a href="{% url 'contact_list' %}">Cancel</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created by Xiaoxuan Hu</p>
+    </footer>
+</body>
+</html>

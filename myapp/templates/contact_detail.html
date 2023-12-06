@@ -9,5 +9,12 @@
     <p>Email: {{ contact.email }}</p>
     <p>Phone: {{ contact.phone }}</p>
     <!-- Add other fields as necessary -->
+</form>
+    <!-- Footer with copyright -->
+<footer>
+    <p>Created by Xiaoxuan Hu</p>
+</footer>
 </body>
 </html>
+<!-- Existing contact details display -->
+<a href="{% url 'edit_contact' contact.id %}">Edit Contact</a>
