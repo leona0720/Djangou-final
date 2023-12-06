@@ -20,3 +20,11 @@ from django.urls import path
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.contact_list, name='contact_list'),
+    path('create/', views.create_contact, name='create_contact'),
+    # Add other URLs for update, delete, etc.
+]
