@@ -14,41 +14,21 @@
 
     <!-- Contact list display -->
     {% if contacts %}
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Created Time</th>
-            </tr>
+        <ul>
             {% for contact in contacts %}
-                <tr>
-                    <td>{{ contact.name }}</td>
-                    <td>{{ contact.email }}</td>
-                    <td>{{ contact.created_time }}</td>
-                </tr>
+                <li>
+                    {{ contact.name }} - {{ contact.email }} - Created on: {{ contact.created_time }}
+                    <a href="{% url 'contact_detail' contact.id %}">Details</a>
+                    <a href="{% url 'delete_contact' contact.id %}" onclick="return confirm('Are you sure?');">Delete</a>
+                </li>
             {% endfor %}
-        </table>
+        </ul>
     {% else %}
         <p>No contacts found.</p>
     {% endif %}
 
-    <!-- Footer with copyright -->
     <footer>
         <p>Created by Xiaoxuan Hu</p>
     </footer>
 </body>
 </html>
-<a href="{% url 'create_contact' %}">Create New Contact</a>
-<!-- Existing structure -->
-{% for contact in contacts %}
-    <li>
-        {{ contact.name }} - {{ contact.email }} - {{ contact.phone }}
-        <a href="{% url 'contact_detail' contact.id %}">Details</a>
-        <a href="{% url 'delete_contact' contact.id %}" onclick="return confirm('Are you sure?');">Delete</a>
-    </li>
-{% endfor %}
-<!-- Existing contact list loop -->
-{% for contact in contacts %}
-    <!-- Existing contact information display -->
-    <a href="{% url 'contact_detail' contact.id %}">View Details</a>
-{% endfor %}

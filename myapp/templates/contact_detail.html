@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Head content -->
+    <title>Contact Details</title>
+    <!-- Meta tags, CSS, and JavaScript links can be added here -->
 </head>
 <body>
     <h1>Contact Details</h1>
+    <!-- If you're using a form, include the opening <form> tag here -->
     <p>Name: {{ contact.name }}</p>
     <p>Email: {{ contact.email }}</p>
     <p>Phone: {{ contact.phone }}</p>
-    <!-- Add other fields as necessary -->
-</form>
-    <!-- Footer with copyright -->
-<footer>
-    <p>Created by Xiaoxuan Hu</p>
-</footer>
+    <!-- Add other fields and form elements as necessary -->
+    <!-- If you're using a form, include the closing </form> tag here -->
+
+    <!-- Edit Contact Link -->
+    <a href="{% url 'edit_contact' contact.id %}">Edit Contact</a>
+
+    <footer>
+        <p>Created by Xiaoxuan Hu</p>
+    </footer>
 </body>
 </html>
-<!-- Existing contact details display -->
-<a href="{% url 'edit_contact' contact.id %}">Edit Contact</a>
