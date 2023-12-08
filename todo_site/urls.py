@@ -15,56 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.http import HttpResponseRedirect
+from django.urls import include, path
+from . import views
+
+
+def redirect_home(_request):
+    return HttpResponseRedirect("polls/")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-]
-from django.urls import path
-from . import views
-
-urlpatterns = [
     path('', views.contact_list, name='contact_list'),
     path('create/', views.create_contact, name='create_contact'),
-    # Add other URLs for update, delete, etc.
-]
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    # ... other URL patterns ...
     path('create/', views.create_contact, name='create_contact'),
-]
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    # Existing URL patterns
     path('contact/<int:contact_id>/', views.contact_detail, name='contact_detail'),
     path('delete/<int:contact_id>/', views.delete_contact, name='delete_contact'),
-]
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    # ... other URL patterns ...
     path('contact/<int:contact_id>/', views.contact_detail, name='contact_detail'),
-]
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    # ... other URL patterns ...
     path('edit/<int:contact_id>/', views.edit_contact, name='edit_contact'),
-]
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    # ... other URL patterns ...
-    path('delete/<int:contact_id>/', views.delete_contact, name='delete_contact'),
-]
-urlpatterns = [
-    # ... other URL patterns ...
     path('delete-confirm/<int:contact_id>/', views.delete_confirm, name='delete_confirm'),
+    path("", redirect_home),
+    path("polls/", include("polls.urls")),
+    path("admin/", admin.site.urls),
 ]
+    # Add other URLs for update, delete, etc.
